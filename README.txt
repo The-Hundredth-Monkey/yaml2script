@@ -3,13 +3,13 @@
 
 ## Command spec
 
-1. `<command>`            - simple 
-2. `<command> ( <opts>`   - with options
-3. `<command> $`          - script, verbatim (command purpose? write-host)
-4. `<command> :`          - with arrays uses ' instead of "
-5. `$<key>:`              - ${key} = ...
+1. <command>            - simple 
+2. <command> ( <opts>   - with options
+3. <command> $          - script, verbatim (command purpose? write-host)
+4. <command> :          - with arrays uses ' instead of "
+5. $<key>:              - ${key} = ...
 
-`<command>` must be returned by Get-Commad. If not first space is replaced with '-' and rest words joined.
+<command> must be returned by Get-Commad. If not first space is replaced with '-' and rest words joined.
 Example: set explorer options: Set-ExplorerOptions
 
 ## Argument spec
@@ -20,15 +20,15 @@ Example: set explorer options: Set-ExplorerOptions
 
 ### Dictionary
 
-0. `<key>:: <value>`          - -Key:'value'
-1. `<key> : <value>`          - -Key:"value"
-2. `$<key>: value`            - ${key} = . { value }    or   $key = value if no ';'
-3. `$<key>: |`                - ${key} = . { multiline }
-4. `<key> : $var`             - -Key:"$var" (same as 1)
-5. `key $ : $var`             - -key:$($var)
-6. `key $ : $var meh 2 3`     - -key:$($var meh 2 3)
-7. `key $ : |`                - -key:$p_key   (multiline script value); $p_key above, same as 3
-8. `$<key>: value1; value2`;  - ${key} = . { value1; value2 }
+0. <key>:: <value>          - -Key:'value'
+1. <key> : <value>          - -Key:"value"
+2. $<key>: value            - ${key} = . { value }    or   $key = value if no ';'
+3. $<key>: |                - ${key} = . { multiline }
+4. <key> : $var             - -Key:"$var" (same as 1)
+5. key $ : $var             - -key:$($var)
+6. key $ : $var meh 2 3     - -key:$($var meh 2 3)
+7. key $ : |                - -key:$p_key   (multiline script value); $p_key above, same as 3
+8. $<key>: value1; value2;  - ${key} = . { value1; value2 }
 9. args: str or array       - non-named
 
 ### Array
@@ -42,7 +42,7 @@ Example: set explorer options: Set-ExplorerOptions
 
 ### Complex values
 
-`<cmd>:`
+<cmd>:
     param1:               - -Param1:${p_param1} ; ${p_param1} = ConvertFrom-Yaml @"..."@
         dict | array
 
